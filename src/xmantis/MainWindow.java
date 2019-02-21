@@ -6,6 +6,7 @@
 package xmantis;
 
 import java.io.File;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -33,21 +34,88 @@ public class MainWindow extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        list_campains = new javax.swing.JList<>();
+        dialog_newCampian = new javax.swing.JDialog();
+        newCampianDialog_label = new javax.swing.JLabel();
+        newCampianDialog_nameLabel = new javax.swing.JLabel();
+        newCampianDialog_nameField = new javax.swing.JTextField();
+        newCampianDialog_createButton = new javax.swing.JButton();
         initWindow_xmantisLabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        initWindow_campianInfo = new javax.swing.JTextArea();
         initWindow_newCampianButton = new javax.swing.JButton();
         initWindow_loadCampianButton = new javax.swing.JButton();
         initWindow_delCampianButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list_campians = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        initWindow_campianInfo = new javax.swing.JTextArea();
+
+        newCampianDialog_label.setFont(new java.awt.Font("High Tower Text", 3, 36)); // NOI18N
+        newCampianDialog_label.setText("New Campian");
+
+        newCampianDialog_nameLabel.setFont(new java.awt.Font("High Tower Text", 1, 12)); // NOI18N
+        newCampianDialog_nameLabel.setText("NAME");
+
+        newCampianDialog_nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCampianDialog_nameFieldActionPerformed(evt);
+            }
+        });
+
+        newCampianDialog_createButton.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
+        newCampianDialog_createButton.setText("CREATE");
+        newCampianDialog_createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCampianDialog_createButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialog_newCampianLayout = new javax.swing.GroupLayout(dialog_newCampian.getContentPane());
+        dialog_newCampian.getContentPane().setLayout(dialog_newCampianLayout);
+        dialog_newCampianLayout.setHorizontalGroup(
+            dialog_newCampianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_newCampianLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialog_newCampianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialog_newCampianLayout.createSequentialGroup()
+                        .addComponent(newCampianDialog_label)
+                        .addGap(18, 18, 18)
+                        .addComponent(newCampianDialog_createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(dialog_newCampianLayout.createSequentialGroup()
+                        .addComponent(newCampianDialog_nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(newCampianDialog_nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        dialog_newCampianLayout.setVerticalGroup(
+            dialog_newCampianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_newCampianLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialog_newCampianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(newCampianDialog_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(newCampianDialog_createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(dialog_newCampianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newCampianDialog_nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newCampianDialog_nameLabel))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(list_campains);
-
         initWindow_xmantisLabel.setFont(new java.awt.Font("High Tower Text", 3, 48)); // NOI18N
         initWindow_xmantisLabel.setText("XMANTIS ");
+
+        initWindow_newCampianButton.setText("New");
+        initWindow_newCampianButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initWindow_newCampianButtonActionPerformed(evt);
+            }
+        });
+
+        initWindow_loadCampianButton.setText("Load");
+
+        initWindow_delCampianButton.setText("Delete");
+
+        jScrollPane1.setViewportView(list_campians);
 
         initWindow_campianInfo.setEditable(false);
         initWindow_campianInfo.setColumns(20);
@@ -55,12 +123,6 @@ public class MainWindow extends javax.swing.JFrame{
         initWindow_campianInfo.setRows(5);
         initWindow_campianInfo.setTabSize(4);
         jScrollPane2.setViewportView(initWindow_campianInfo);
-
-        initWindow_newCampianButton.setText("New");
-
-        initWindow_loadCampianButton.setText("Load");
-
-        initWindow_delCampianButton.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,6 +169,25 @@ public class MainWindow extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initWindow_newCampianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initWindow_newCampianButtonActionPerformed
+        /*
+         * Opens a panel for creating a new campian. Uses information filled out in window
+         * to create new Campian object and adds it to list_campians.
+         */
+        
+        // Open newCampianDialog
+        // 
+    }//GEN-LAST:event_initWindow_newCampianButtonActionPerformed
+
+    private void newCampianDialog_nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCampianDialog_nameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newCampianDialog_nameFieldActionPerformed
+
+    private void newCampianDialog_createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCampianDialog_createButtonActionPerformed
+        if(newCampianDialog_nameField.getText().length() == 0)
+            JOptionPane.showMessageDialog(this, "The name field cannot be empty.", "ERROR: Blank field", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_newCampianDialog_createButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -150,6 +231,7 @@ public class MainWindow extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog dialog_newCampian;
     private javax.swing.JTextArea initWindow_campianInfo;
     private javax.swing.JButton initWindow_delCampianButton;
     private javax.swing.JButton initWindow_loadCampianButton;
@@ -157,7 +239,11 @@ public class MainWindow extends javax.swing.JFrame{
     private javax.swing.JLabel initWindow_xmantisLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<String> list_campains;
+    private javax.swing.JList<String> list_campians;
+    private javax.swing.JButton newCampianDialog_createButton;
+    private javax.swing.JLabel newCampianDialog_label;
+    private javax.swing.JTextField newCampianDialog_nameField;
+    private javax.swing.JLabel newCampianDialog_nameLabel;
     // End of variables declaration//GEN-END:variables
 
     private void checkSaves(){
@@ -180,6 +266,7 @@ public class MainWindow extends javax.swing.JFrame{
                 initWindow_campianInfo.setText("No saved campians.");
         else{
             Boolean created = dir.mkdir();
+            initWindow_campianInfo.setText("No saved campians.");
         }
     }
 
